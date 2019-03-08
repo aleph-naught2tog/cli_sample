@@ -7,12 +7,14 @@
 
 These are for running an actual [`Application`](https://hexdocs.pm/elixir/Application.html).
 
-* `mix run` is the default; it runs your `Application` (I think it can be set to other things, too)
+Most of these rely on [`mix`](https://hexdocs.pm/mix/Mix.html).
+
+* [`mix run`](https://hexdocs.pm/mix/Mix.Tasks.Run.html) is the default; it runs your `Application` (I think it can be set to other things, too)
 * `mix run --no --halt` says hey, run the app, but don't exit. This is useful for a long-running thing like a server or file-watcher.
 
 The `escript` variations are for creating a CLI executable you can use like other shell scripts. It takes a little longer because usually it bundles Elixir ITSELF into the script, meaning that it can then be run anywhere without a dependency on Elixir, which is pretty neat!
 
-* `mix escript.build`
+* [`mix escript.build`](https://hexdocs.pm/mix/Mix.Tasks.Escript.Build.html)
   * you need a `escript: [main_module: ModuleYouWouldLikeToRunThatContainsAFunctionCalledMainWithOneArgument]`
   * once built, it defaults to the directory you're in, so you can just run in by the name of the module. so if you had `escript: [main_module: FancyModule]` in your `mix.exs` under `def project...`, you would do:
     1. `mix escript.build`
@@ -20,5 +22,6 @@ The `escript` variations are for creating a CLI executable you can use like othe
 
   There are other customization options.
 
+You can also run things via the Elixir shell ([`iex`](https://hexdocs.pm/iex/IEx.html)).
 
 * `iex -S mix` runs your default `mix` task in the `repl`; as a result, it loads your dependencies, etc., so you can recompile _from inside there_ and then run it as desired, but you have to call it manually as you noted.
