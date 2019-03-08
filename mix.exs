@@ -3,6 +3,8 @@ defmodule CliSample.MixProject do
 
   def project do
     [
+      #### This -- `app` -- is the default name for your CLI app
+      ####    That's not its original purpose, just a default.
       app: :cli_sample,
       version: "0.1.0",
       elixir: "~> 1.8",
